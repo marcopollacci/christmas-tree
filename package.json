@@ -4,13 +4,17 @@
   "main": "index.html",
   "scripts": {
     "start": "live-server site",
-    "deploy": "gh-pages -d site"
+    "build": "cd site/js && minify ",
+    "deploy": "gh-pages -d dist"
   },
+  "type": "module",
   "author": "Marco Pollacci",
   "license": "MIT",
   "description": "",
   "dependencies": {
+    "fs-extra": "^11.2.0",
     "gh-pages": "^6.2.0",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "minify": "^12.0.0"
   }
 }
