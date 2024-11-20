@@ -4,8 +4,7 @@
   "main": "index.html",
   "scripts": {
     "start": "live-server site",
-    "build": "node build.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d site"
   },
   "type": "module",
   "author": "Marco Pollacci",
