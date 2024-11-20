@@ -1,1 +1,38 @@
-function a(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}function b(A=7){console.log('🚀 ~ generateTree ~ rows:',A);var _=document.querySelector('.tree');console.log('🚀 ~ generateTree ~ treeElement:',_);let c=0;for(let i=0;i<A;i++){const B=document.createElement('div');_.appendChild(B);for(let j=0;j<=i;j++){const C=document.createElement('span');C.style.setProperty('--delay',`${c}s`);C.textContent='* ';B.appendChild(C);c+=0.2}}var d=document.createElement('span');d.textContent='|';_.appendChild(d)}window.onload=()=>b();document.body.addEventListener('click',a);
+/**
+ * Toggles full screen mode for the page.
+ * @return {void}
+ */
+function goFullscreen() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    document.documentElement.requestFullscreen();
+  }
+}
+function generateTree(rows = 7) {
+  console.log("🚀 ~ generateTree ~ rows:", rows);
+  const treeElement = document.querySelector(".tree");
+  console.log("🚀 ~ generateTree ~ treeElement:", treeElement);
+  let delay = 0;
+
+  for (let i = 0; i < rows; i++) {
+    const rowElement = document.createElement("div");
+    treeElement.appendChild(rowElement);
+
+    for (let j = 0; j <= i; j++) {
+      const spanElement = document.createElement("span");
+      spanElement.style.setProperty("--delay", `${delay}s`);
+      spanElement.textContent = "* ";
+      rowElement.appendChild(spanElement);
+      delay += 0.2;
+    }
+  }
+  const trunkElement = document.createElement("span");
+  trunkElement.textContent = "|";
+  treeElement.appendChild(trunkElement);
+}
+
+window.onload = () => {
+  generateTree();
+};
+document.body.addEventListener("click", goFullscreen);
