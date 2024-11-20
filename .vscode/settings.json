@@ -1,4 +1,4 @@
 {
-  "conventionalCommits.scopes": ["tree"],
+  "conventionalCommits.scopes": ["tree", "snowflakes"],
   "liveServer.settings.root": "./site"
 }

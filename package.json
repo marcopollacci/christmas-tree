@@ -7,7 +7,7 @@
     "deploy": "gh-pages -d dist"
   },
   "author": "Marco Pollacci",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "gh-pages": "^6.2.0",
