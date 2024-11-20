@@ -4,7 +4,7 @@
   "main": "index.html",
   "scripts": {
     "start": "live-server site",
-    "build": "cd site/js && minify ",
+    "build": "node build.js",
     "deploy": "gh-pages -d dist"
   },
   "type": "module",
