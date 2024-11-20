@@ -1,6 +1,6 @@
 @font-face {
   font-family: "SilverChristmas";
-  src: url("/fonts/SilverChristmas.otf") format("opentype");
+  src: url("../fonts/SilverChristmas.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
