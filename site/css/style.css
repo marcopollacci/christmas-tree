@@ -1,13 +1,12 @@
 @font-face {
   font-family: "SilverChristmas";
-  src: url("SilverChristmas.otf") format("opentype");
+  src: url("fonts/SilverChristmas.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 body {
   font-family: monospace;
-
   background: linear-gradient(
     45deg,
     #ff0000,
@@ -17,6 +16,7 @@ body {
     #ff0000
   );
   background-size: 300% 300%;
+  cursor: pointer;
   color: #ffffff;
   display: flex;
   flex-wrap: wrap;

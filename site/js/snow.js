@@ -39,4 +39,17 @@ function calcAnimationDelay(flakeIndex, totalSnowCount) {
     : randomize(0.35, 18);
 }
 
+/**
+ * Toggles full screen mode for the page.
+ * @return {void}
+ */
+function goFullscreen() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    document.documentElement.requestFullscreen();
+  }
+}
+
 window.addEventListener("DOMContentLoaded", letItSnow);
+document.body.addEventListener("click", goFullscreen);

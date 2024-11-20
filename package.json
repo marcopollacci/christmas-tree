@@ -1,0 +1,16 @@
+{
+  "name": "christmas-tree",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server site",
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Marco Pollacci",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "gh-pages": "^6.2.0",
+    "live-server": "^1.2.2"
+  }
+}
