@@ -1,54 +1,7 @@
-//* css and some function here are taken from: https://github.com/danielglejzner/angular-christmas-calendar
-class SnowFlakes extends HTMLElement {
-  static observedAttributes = ["flakes"];
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-    this.shadowRoot.innerHTML = `
+class SnowFlakes extends HTMLElement{static observedAttributes=['flakes'];constructor(){super();this.attachShadow({mode:'open'});this.shadowRoot.innerHTML=`
         <style>${this.#cssStyles()}</style>
         <div class="snow-area"></div>
-    `;
-  }
-
-  get flakes() {
-    return this.getAttribute("flakes");
-  }
-
-  set flakes(value) {
-    if (value === this.flakes) return;
-    this.setAttribute("flakes", value);
-  }
-
-  attributeChangedCallback(name, _oldValue, newValue) {
-    if (name === "flakes") {
-      this.#letItSnow(newValue);
-    }
-  }
-
-  #letItSnow(numberOfSnowflakes = 100) {
-    for (let i = 0; i < numberOfSnowflakes; i++) {
-      const snowflake = document.createElement("span");
-      const size = this.#randomize(0.15, 0.85);
-      const leftPos = this.#randomize(0, 100);
-
-      snowflake.classList.add("snowflake");
-      snowflake.classList.add(`c${this.#randomize(1, 3, true)}`);
-      snowflake.style.left = `${leftPos}%`;
-      snowflake.style.width = `${size}vw`;
-      snowflake.style.height = `${size}vw`;
-      snowflake.style.setProperty("--drift", `${leftPos + 2}%`);
-      snowflake.style.animationDelay = `${this.#randomize(0, 100)}s`;
-      this.shadowRoot.querySelector(".snow-area").appendChild(snowflake);
-    }
-  }
-
-  #randomize(min, max, round = false) {
-    const randomPick = Math.random() * (max - min) + min;
-    return round ? Math.round(randomPick) : randomPick;
-  }
-
-  #cssStyles() {
-    return `
+    `}get flakes(){return this.getAttribute('flakes')}set flakes(a){if(a===this.flakes)return;this.setAttribute('flakes',a)}attributeChangedCallback(A,b,c){A==='flakes'&&this.#letItSnow(c)}#letItSnow(_=100){for(let i=0;i<_;i++){const B=document.createElement('span'),C=this.#randomize(0.15,0.85),_c=this.#randomize(0,100);B.classList.add('snowflake');B.classList.add(`c${this.#randomize(1,3,!0)}`);B.style.left=`${_c}%`;B.style.width=B.style.height=`${C}vw`;B.style.setProperty('--drift',`${_c+2}%`);B.style.animationDelay=`${this.#randomize(0,100)}s`;this.shadowRoot.querySelector('.snow-area').appendChild(B)}}#randomize(_a,_b,d=!1){var D=Math.random()*(_b-_a)+_a;return d?Math.round(D):D}#cssStyles(){return`
           .snow-area {
             z-index: -1;
             height: 100vh;
@@ -119,8 +72,4 @@ class SnowFlakes extends HTMLElement {
               transform: translateY(110vh);
             }
           }
-    `;
-  }
-}
-
-customElements.define("snow-flakes", SnowFlakes);
+    `}}customElements.define('snow-flakes',SnowFlakes);
