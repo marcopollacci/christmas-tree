@@ -1,4 +1,4 @@
-# Christmas Tree Project
+# 🎄 Christmas Tree Project 🎄
 
 A interactive Christmas tree project built with HTML, CSS, and JavaScript.
 
