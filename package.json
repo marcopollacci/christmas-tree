@@ -4,7 +4,7 @@
   "main": "index.html",
   "scripts": {
     "start": "live-server site",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d site"
   },
   "author": "Marco Pollacci",
   "license": "MIT",

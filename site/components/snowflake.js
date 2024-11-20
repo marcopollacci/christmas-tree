@@ -1,4 +1,4 @@
-//* css and some function here are taken from referral: https://github.com/danielglejzner/angular-christmas-calendar
+//* css and some function here are taken from: https://github.com/danielglejzner/angular-christmas-calendar
 class SnowFlakes extends HTMLElement {
   static observedAttributes = ["flakes"];
   constructor() {
