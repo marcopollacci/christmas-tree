@@ -12,6 +12,7 @@ This project is a interactive Christmas tree that can be viewed in full-screen m
 - Snowflakes falling from the top
 - Accumulation of snowflakes at the base of the tree
 - Dynamic generation of tree rows and snowflakes using JavaScript
+- Ability to modify the number of snowflakes via URL parameter `flakes`
 
 ## Technologies Used
 
