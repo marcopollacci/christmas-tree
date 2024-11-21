@@ -25,30 +25,48 @@ class SnowFlakes extends HTMLElement {
   }
 
   /**
-   * The function `letItSnow` creates a specified number of snowflake elements with randomized sizes,
-   * positions, colors, and animation delays within a designated snow area.
+   * The function `letItSnow` appends a specified number of snowflakes to a designated element in the
+   * shadow DOM.
    * @param [numberOfSnowflakes=100] - The `numberOfSnowflakes` parameter in the `letItSnow` function
-   * determines how many snowflakes will be created and displayed on the screen. By default, if no value
-   * is provided when calling the function, it will create 100 snowflakes. You can specify a different
-   * number if
+   * specifies the number of snowflakes to be generated and appended to the `.snow-area` element in the
+   * component's shadow DOM. By default, if no value is provided when calling the function, it will
+   * generate 100
    */
-  //* this function is taken from: https://github.com/danielglejzner/angular-christmas-calendar
   #letItSnow(numberOfSnowflakes = 100) {
+    console.log(
+      "🚀 ~ SnowFlakes ~ #letItSnow ~ numberOfSnowflakes:",
+      numberOfSnowflakes
+    );
     for (let i = 0; i < numberOfSnowflakes; i++) {
-      const snowflake = document.createElement("span");
-      const size = this.#randomize(0.15, 0.85);
-      const leftPos = this.#randomize(0, 100);
-
-      snowflake.classList.add("snowflake");
-      snowflake.classList.add(`c${this.#randomize(1, 3, true)}`);
-      snowflake.style.left = `${leftPos}%`;
-      snowflake.style.width = `${size}vw`;
-      snowflake.style.height = `${size}vw`;
-      snowflake.style.setProperty("--drift", `${leftPos + 2}%`);
-      snowflake.style.animationDelay = `${this.#randomize(0, 100)}s`;
-
-      this.shadowRoot.querySelector(".snow-area").appendChild(snowflake);
+      this.shadowRoot
+        .querySelector(".snow-area")
+        .appendChild(this.snowFlakeMaker().next().value);
     }
+  }
+
+  /**
+   * A generator function that creates a snowflake element.
+   * The element is assigned a random class (c1, c2, c3) for styling.
+   * The element is assigned a random left position, width, and height.
+   * The element is assigned a random animation delay.
+   * The element is assigned a custom property '--drift' which is the left position plus 2.
+   * The generator yields the snowflake element.
+   */
+  *snowFlakeMaker() {
+    //* this peace of code inside the function is taken from: https://github.com/danielglejzner/angular-christmas-calendar
+    //* and modified to work with this project
+    const snowflake = document.createElement("span");
+    const size = this.#randomize(0.15, 0.85);
+    const leftPos = this.#randomize(0, 100);
+
+    snowflake.classList.add("snowflake");
+    snowflake.classList.add(`c${this.#randomize(1, 3, true)}`);
+    snowflake.style.left = `${leftPos}%`;
+    snowflake.style.width = `${size}vw`;
+    snowflake.style.height = `${size}vw`;
+    snowflake.style.setProperty("--drift", `${leftPos + 2}%`);
+    snowflake.style.animationDelay = `${this.#randomize(0, 30)}s`;
+    yield snowflake;
   }
 
   /**
@@ -110,12 +128,12 @@ class SnowFlakes extends HTMLElement {
 
           .snowflake.c2 {
             background-color: #d6ffff;
-            animation-duration: 18s;
+            animation-duration: 10s;
           }
 
           .snowflake.c3 {
             background-color: #fff;
-            animation-duration: 22s;
+            animation-duration: 16s;
           }
 
           @keyframes snowAnime {
