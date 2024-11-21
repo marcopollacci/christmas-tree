@@ -24,7 +24,6 @@ class SnowFlakes extends HTMLElement {
     }
   }
 
-  //* this function is taken from: https://github.com/danielglejzner/angular-christmas-calendar
   /**
    * The function `letItSnow` creates a specified number of snowflake elements with randomized sizes,
    * positions, colors, and animation delays within a designated snow area.
@@ -33,6 +32,7 @@ class SnowFlakes extends HTMLElement {
    * is provided when calling the function, it will create 100 snowflakes. You can specify a different
    * number if
    */
+  //* this function is taken from: https://github.com/danielglejzner/angular-christmas-calendar
   #letItSnow(numberOfSnowflakes = 100) {
     for (let i = 0; i < numberOfSnowflakes; i++) {
       const snowflake = document.createElement("span");
@@ -77,7 +77,7 @@ class SnowFlakes extends HTMLElement {
    * and animation properties for the snowflakes in the custom HTML element created by the `SnowFlakes`
    * class.
    */
-  //* this styles is taken from: https://github.com/danielglejzner/angular-christmas-calendar
+  //* this styles is taken from: https://github.com/danielglejzner/angular-christmas-calendar and little modified
   #cssStyles() {
     return `
           .snow-area {
@@ -95,17 +95,13 @@ class SnowFlakes extends HTMLElement {
             pointer-events: none;
             will-change: transform, opacity, left;
             border-radius: 50%;
-            max-width: 8px;
-            max-height: 8px;
-            -webkit-animation-name: snowAnime;
+            max-width: 0.5em;
+            max-height: 0.5em;
             animation-name: snowAnime;
-            -webkit-animation-duration: 5s;
             animation-duration: 5s;
-            -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
             position: absolute;
-            -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
+            transform: translateY(-0.625em);
           }
 
           .snowflake.c1 {
@@ -114,28 +110,12 @@ class SnowFlakes extends HTMLElement {
 
           .snowflake.c2 {
             background-color: #d6ffff;
-            -webkit-animation-duration: 18s;
             animation-duration: 18s;
           }
 
           .snowflake.c3 {
             background-color: #fff;
-            -webkit-animation-duration: 22s;
             animation-duration: 22s;
-          }
-
-          @-webkit-keyframes snowAnime {
-            15%,
-            95% {
-              opacity: 1;
-              left: var(--drift);
-            }
-
-            to {
-              opacity: 0.8;
-              -webkit-transform: translateY(110vh);
-              transform: translateY(110vh);
-            }
           }
 
           @keyframes snowAnime {
@@ -146,7 +126,6 @@ class SnowFlakes extends HTMLElement {
 
             to {
               opacity: 0.8;
-              -webkit-transform: translateY(110vh);
               transform: translateY(110vh);
             }
           }
