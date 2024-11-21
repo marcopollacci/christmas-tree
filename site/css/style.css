@@ -63,6 +63,13 @@ div:has(h1) {
   animation: none;
 }
 
+@media (pointer: coarse) and (orientation: portrait) {
+  body {
+    display: block;
+    margin-block-start: 4em;
+  }
+}
+
 @keyframes blink {
   0%,
   100% {
