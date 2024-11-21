@@ -20,6 +20,7 @@ class SnowFlakes extends HTMLElement {
 
   attributeChangedCallback(name, _oldValue, newValue) {
     if (name === "flakes") {
+      this.shadowRoot.querySelector(".snow-area").innerHTML = "";
       this.#letItSnow(newValue);
     }
   }
@@ -33,10 +34,6 @@ class SnowFlakes extends HTMLElement {
    * generate 100
    */
   #letItSnow(numberOfSnowflakes = 100) {
-    console.log(
-      "🚀 ~ SnowFlakes ~ #letItSnow ~ numberOfSnowflakes:",
-      numberOfSnowflakes
-    );
     for (let i = 0; i < numberOfSnowflakes; i++) {
       this.shadowRoot
         .querySelector(".snow-area")
@@ -65,7 +62,7 @@ class SnowFlakes extends HTMLElement {
     snowflake.style.width = `${size}vw`;
     snowflake.style.height = `${size}vw`;
     snowflake.style.setProperty("--drift", `${leftPos + 2}%`);
-    snowflake.style.animationDelay = `${this.#randomize(0, 30)}s`;
+    snowflake.style.animationDelay = `${this.#randomize(0, 60)}s`;
     yield snowflake;
   }
 
