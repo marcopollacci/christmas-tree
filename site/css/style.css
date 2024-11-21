@@ -67,7 +67,9 @@ div:has(h1) {
 @media (pointer: coarse) and (orientation: portrait) {
   body {
     display: block;
-    margin-block-start: 4em;
+  }
+  div:has(h1) {
+    padding-block-start: 4em;
   }
 }
 

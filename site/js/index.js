@@ -39,7 +39,16 @@ function generateTree(rows = 7) {
   treeElement.appendChild(trunkElement);
 }
 
+function alterNumberOfFlakes() {
+  const searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.has("flakes")) {
+    const flakes = searchParams.get("flakes");
+    document.querySelector("snow-flakes").setAttribute("flakes", flakes);
+  }
+}
+
 window.onload = () => {
   generateTree();
+  alterNumberOfFlakes();
 };
 document.body.addEventListener("click", goFullscreen);
