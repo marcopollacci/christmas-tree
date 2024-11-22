@@ -103,6 +103,7 @@ class SnowFlakes extends HTMLElement {
             left: 0;
             right: 0;
             overflow: hidden;
+            width: 100vw;
           }
 
           .snowflake {
