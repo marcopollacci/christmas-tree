@@ -72,7 +72,7 @@ div:has(h1) {
     display: block;
   }
   div:has(h1) {
-    padding-block-start: 4em;
+    padding-block-start: 3em;
   }
 }
 
