@@ -1,6 +1,6 @@
-const style = fetch("./components/snowflake.css").then((response) =>
-  response.text()
-);
+const style = fetch(
+  "https://marcopollacci.github.io/christmas-tree/components/snowflake.css"
+).then((response) => response.text());
 class SnowFlakes extends HTMLElement {
   static observedAttributes = ["flakes"];
   constructor() {
