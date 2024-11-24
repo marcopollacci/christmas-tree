@@ -52,7 +52,6 @@ class SnowFlakes extends HTMLElement {
  * The element is assigned a random class (c1, c2, c3) for styling.
  * The element is assigned a random left position, width, and height.
  * The element is assigned a random animation delay.
- * The element is assigned a custom property '--drift' which is the left position plus 2.
  * The generator yields the snowflake element.
  */
 function* snowFlakeMaker() {
@@ -64,10 +63,9 @@ function* snowFlakeMaker() {
 
   snowflake.classList.add("snowflake");
   snowflake.classList.add(`c${randomize(1, 3, true)}`);
-  snowflake.style.left = `${leftPos}%`;
+  snowflake.style.insetInlineStart = `${leftPos}%`;
   snowflake.style.width = `${size}vw`;
   snowflake.style.height = `${size}vw`;
-  snowflake.style.setProperty("--drift", `${leftPos + 2}%`);
   snowflake.style.animationDelay = `${randomize(0, 60)}s`;
   yield snowflake;
 }

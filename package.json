@@ -4,7 +4,8 @@
   "main": "index.html",
   "scripts": {
     "start": "live-server site",
-    "deploy": "gh-pages -d site"
+    "uglify": "uglifyjs-folder site -e -x .js -o site",
+    "deploy": "npm run uglify && gh-pages -d site && git restore ."
   },
   "type": "module",
   "author": "Marco Pollacci",
@@ -13,5 +14,9 @@
   "dependencies": {
     "gh-pages": "^6.2.0",
     "live-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "uglifyjs": "^2.4.11",
+    "uglifyjs-folder": "^3.3.0"
   }
 }
