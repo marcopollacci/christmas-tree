@@ -14,6 +14,27 @@ class SnowFlakes extends HTMLElement {
     });
   }
 
+  /**
+   * This method is called when the element is connected to the DOM.
+   * If the attribute "flakes" is not set, it calls the #letItSnow method
+   * to generate the snowflakes.
+   * @return {void}
+   */
+  connectedCallback() {
+    if (!this.flakes) {
+      this.#letItSnow();
+    }
+  }
+
+  /**
+   * When the element is disconnected, this method is called.
+   * It cleans up the shadowRoot by removing all the snowflakes.
+   * @return {void}
+   */
+  disconnectedCallback() {
+    this.shadowRoot.querySelector(".snow-area").innerHTML = "";
+  }
+
   get flakes() {
     return this.getAttribute("flakes");
   }
