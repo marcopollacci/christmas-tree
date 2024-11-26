@@ -51,4 +51,4 @@ window.onload = () => {
   generateTree();
   alterNumberOfFlakes();
 };
-document.body.addEventListener("click", goFullscreen);
+document.body.addEventListener("dblclick", goFullscreen);
