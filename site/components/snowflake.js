@@ -1,4 +1,3 @@
-console.log("aaaa", document.URL.includes(":8080"));
 const style = fetch(
   !document.URL.includes(":8080")
     ? document.currentScript.getAttribute("cssUrl")
