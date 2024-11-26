@@ -1,5 +1,8 @@
+console.log("aaaa", document.URL.includes(":8080"));
 const style = fetch(
-  "https://marcopollacci.github.io/christmas-tree/components/snowflake.css"
+  !document.URL.includes(":8080")
+    ? document.currentScript.getAttribute("cssUrl")
+    : "./components/snowflake.css"
 ).then((response) => response.text());
 class SnowFlakes extends HTMLElement {
   static observedAttributes = ["flakes"];
