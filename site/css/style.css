@@ -33,13 +33,14 @@ div:has(h1) {
   text-align: center;
   font-family: "SilverChristmas";
   transform: rotate(-15deg);
-  h1 {
-    font-weight: normal;
-    margin-block-end: 0;
-  }
-  p {
-    margin-block-start: 0;
-  }
+}
+
+div:has(h1) h1 {
+  font-weight: normal;
+  margin-block-end: 0;
+}
+div:has(h1)p {
+  margin-block-start: 0;
 }
 
 .tree {
