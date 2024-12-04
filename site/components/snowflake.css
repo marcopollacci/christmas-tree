@@ -18,24 +18,24 @@
   max-width: 0.5em;
   max-height: 0.5em;
   animation-name: snowAnime;
-  animation-duration: 5s;
+  animation-duration: var(--snowflakes-default-animation-duration, 5s);
   animation-iteration-count: infinite;
   position: absolute;
   transform: translateY(-0.625em);
 }
 
 .snowflake.c1 {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--snowflakes-color-c1, rgba(255, 255, 255, 0.9));
 }
 
 .snowflake.c2 {
-  background-color: #d6ffff;
-  animation-duration: 10s;
+  background-color: var(--snowflakes-color-c2, #d6ffff);
+  animation-duration: var(--snowflakes-default-animation-c2, 10s);
 }
 
 .snowflake.c3 {
-  background-color: #fff;
-  animation-duration: 16s;
+  background-color: var(--snowflakes-color-c3, #fff);
+  animation-duration: var(--snowflakes-default-animation-c3, 16s);
 }
 
 @keyframes snowAnime {
