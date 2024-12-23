@@ -50,13 +50,12 @@ class SnowFlakes extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     if (name === "flakes") {
       this.shadowRoot.querySelector(".snow-area").innerHTML = "";
-      const isLimitNumber = newValue >= MAX_SNOWFLAKES;
-      if (isLimitNumber)
+      const isExcideedMaxSnowFlakes = newValue >= MAX_SNOWFLAKES;
+      if (isExcideedMaxSnowFlakes)
         console.error(
           `The maximum number of snowflakes is ${MAX_SNOWFLAKES}, the current value is ${newValue}`
         );
-      const numberOfSnowflakes = isLimitNumber ? MAX_SNOWFLAKES : newValue;
-      this.#letItSnow(numberOfSnowflakes);
+      this.#letItSnow(isExcideedMaxSnowFlakes ? MAX_SNOWFLAKES : newValue);
     }
   }
 
