@@ -3,6 +3,7 @@ const style = fetch(
     ? document.currentScript.getAttribute("cssUrl")
     : "./components/snowflake.css"
 ).then((response) => response.text());
+const MAX_SNOWFLAKES = 1500;
 class SnowFlakes extends HTMLElement {
   static observedAttributes = ["flakes"];
   constructor() {
@@ -49,7 +50,13 @@ class SnowFlakes extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     if (name === "flakes") {
       this.shadowRoot.querySelector(".snow-area").innerHTML = "";
-      this.#letItSnow(newValue);
+      const isLimitNumber = newValue >= MAX_SNOWFLAKES;
+      if (isLimitNumber)
+        console.error(
+          `The maximum number of snowflakes is ${MAX_SNOWFLAKES}, the current value is ${newValue}`
+        );
+      const numberOfSnowflakes = isLimitNumber ? MAX_SNOWFLAKES : newValue;
+      this.#letItSnow(numberOfSnowflakes);
     }
   }
 
